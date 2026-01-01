@@ -32,6 +32,8 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
+										"wildcardFolderPath": "@{item().table}_cdc",
+										"wildcardFileName": "*.json",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -45,10 +47,6 @@
 										"container": "bronze",
 										"folder": {
 											"value": "@{item().table}_cdc",
-											"type": "Expression"
-										},
-										"file": {
-											"value": "cdc.json",
 											"type": "Expression"
 										}
 									}
@@ -270,6 +268,8 @@
 												"storeSettings": {
 													"type": "AzureBlobFSReadSettings",
 													"recursive": true,
+													"wildcardFolderPath": "@{item().table}_cdc",
+													"wildcardFileName": "*.json",
 													"enablePartitionDiscovery": false
 												},
 												"formatSettings": {
@@ -296,10 +296,6 @@
 													"folder": {
 														"value": "@{item().table}_cdc",
 														"type": "Expression"
-													},
-													"file": {
-														"value": "empty.json",
-														"type": "Expression"
 													}
 												}
 											}
@@ -310,11 +306,7 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"container": "bronze",
-													"folder": "@{item().table}_cdc",
-													"file": {
-														"value": "cdc.json",
-														"type": "Expression"
-													}
+													"folder": "@{item().table}_cdc"
 												}
 											}
 										]
