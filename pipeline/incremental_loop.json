@@ -32,6 +32,8 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
+										"wildcardFolderPath": "@{item().table}_cdc",
+										"wildcardFileName": "*.json",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -270,6 +272,8 @@
 												"storeSettings": {
 													"type": "AzureBlobFSReadSettings",
 													"recursive": true,
+													"wildcardFolderPath": "@{item().table}_cdc",
+													"wildcardFileName": "*.json",
 													"enablePartitionDiscovery": false
 												},
 												"formatSettings": {
