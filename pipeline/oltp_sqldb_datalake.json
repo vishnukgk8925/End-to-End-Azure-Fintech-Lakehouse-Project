@@ -1,5 +1,5 @@
 {
-	"name": "incremental_loop",
+	"name": "oltp_sqldb_datalake",
 	"properties": {
 		"activities": [
 			{
@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@pipeline().parameters.loop_input\r\n",
+						"value": "@pipeline().parameters.loop_input\n",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -32,8 +32,6 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFolderPath": "@{item().table}_cdc",
-										"wildcardFileName": "*.json",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -272,8 +270,6 @@
 												"storeSettings": {
 													"type": "AzureBlobFSReadSettings",
 													"recursive": true,
-													"wildcardFolderPath": "@{item().table}_cdc",
-													"wildcardFileName": "*.json",
 													"enablePartitionDiscovery": false
 												},
 												"formatSettings": {
