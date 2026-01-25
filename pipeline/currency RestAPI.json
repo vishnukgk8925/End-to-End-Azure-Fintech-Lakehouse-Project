@@ -14,13 +14,13 @@
 				"typeProperties": {
 					"variableName": "v_currentdate",
 					"value": {
-						"value": "@pipeline().parameters.p_from",
+						"value": "@pipeline().parameters.p_startdate",
 						"type": "Expression"
 					}
 				}
 			},
 			{
-				"name": "Until1",
+				"name": "Until",
 				"type": "Until",
 				"dependsOn": [
 					{
@@ -33,7 +33,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(variables('v_currentdate'),pipeline().parameters.p_enddate)",
+						"value": "@lessOrEquals(variables('v_currentdate'), pipeline().parameters.p_enddate)\n",
 						"type": "Expression"
 					},
 					"activities": [
